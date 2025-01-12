@@ -14,12 +14,12 @@ public_users.post("/register", (req,res) => {
         // Check if the user does not already exist
         if (!isValid(username)) {
             users.push({"username": username, "password": password});
-            return res.status(200).send("User successfully registered. Now you can login");
+            return res.status(200).send("Customer successfully registered. Now you can login");
         } else {
-            return res.status(404).send("User already exists!");
+            return res.status(404).send("Customer already exists!");
         }
     }
-    return res.status(404).send("Unable to register user.");
+    return res.status(404).send("Unable to register Customer.");
 });
 
 // Get the book list available in the shop

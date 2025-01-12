@@ -41,7 +41,7 @@ regd_users.post("/login", (req,res) => {
         let access_Token = jwt.sign({data: password}, 'access', { expiresIn: 60 * 60 * 60});
         // Store access token and username in session
         req.session.authorization = {access_Token, username}
-        return res.status(200).send("User successfully logged in");
+        return res.status(200).send("Customer successfully logged in");
     } else {
         return res.status(206).send("Incorrect Username or Password");
     }
