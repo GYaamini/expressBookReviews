@@ -58,10 +58,10 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
         }
         if (books[isbn].reviews[username]) {
             books[isbn].reviews[username] = review;
-            return res.status(200).send("Review updated successfully");
+            return res.status(200).send(`Review for ISBN : ${isbn} updated successfully by ${username}`);
         } else {
             books[isbn].reviews[username] = review;
-            return res.status(200).send("Review added successfully");
+            return res.status(200).send(`Review for ISBN : ${isbn} added successfully by ${username}`);
         }
     } else {
         return res.status(404).send("No book found in our database");
@@ -77,10 +77,10 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
             return res.status(404).send("No Reviews");
         }
         if (!books[isbn].reviews[username]) {
-            return res.status(404).send(`No review by the user $(username)`);
+            return res.status(404).send(`No review by the user ${username}`);
         } else {
             delete books[isbn].reviews[username];
-            return res.status(200).send("Review deleted successfully");
+            return res.status(200).send(`Review for ISBN : ${isbn} deleted successfully by ${username}`);
         }
     } else {
         return res.status(404).send("No book found in our database");
